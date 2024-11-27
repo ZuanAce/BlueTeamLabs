@@ -8,64 +8,74 @@
 
 ## Setup
 1. Download the file and unzip the file.
-2. Readed the extracted PDF file.
+2. Read the extracted PDF file.
    
 ## Question 1) Name the supply chain attack related to Java logging library in the end of 2021 (Format: AttackNickname) 
-qqqq
-qqqq
+`Log4j`
 
----
+![image](https://github.com/user-attachments/assets/2f983c93-f5ad-4801-a818-54176eaeb51b)
+
+----
 
 ## Question 2) Mention the MITRE Technique ID which effected more than 50% of the customers (Format: TXXXX) 
+`T1059`
 
-1. Go to VirusTotal, upload the *sample.doc* file, and analyse the generated report. The full filetype of the provided sample is **Office Open XML Document**.
+![image](https://github.com/user-attachments/assets/f13c6ab9-eb66-43eb-a4cc-20849e8e8a33)
 
-   ![image](https://github.com/ZuanAce/blueteamlabs/assets/147037911/b5de49bd-76f4-4f26-ae2e-1a835822a223)
+----
 
-# Question 3) Extract the URL that is used within the sample and submit it (Format: https://x.domain.tld/path/to/something)
-1. To analyse the file, extract the content of the DOC file by running the command *unzip sample.doc*.
-2. Using the command *cat word/_rels/document.xml.rels* to examine the content of the "word/_rels/document.xml.rels" file. This file seems suspicious because it stands for "Relationships part" and plays a crucial role in defining relationships between various parts of the document.
+## Question 3) Submit the names of 2 vulnerabilities belonging to Exchange Servers (Format: VulnNickname, VulnNickname) 
+`ProxyLogon, ProxyShell`
    
-   ![image](https://github.com/ZuanAce/blueteamlabs/assets/147037911/f230bbd4-f560-4397-9915-5ea993883bed)
-   
-3. The output displays the following findings:
-   ```
-   <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-   <Relationships xmlns="http://schemas.openxmlformats.org/package/2006/relationships">
-   <Relationship Id="rId3" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/webSettings" Target="webSettings.xml"/>
-   <Relationship Id="rId2" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/settings" Target="settings.xml"/><Relationship Id="rId1"
-   Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/styles" Target="styles.xml"/><Relationship Id="rId996"
-   Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/oleObject" Target="https://www.xmlformats.com/office/word/2022/wordprocessingDrawing/RDF842l.html!" TargetMode="External"/
-   <Relationship Id="rId5" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/theme" Target="theme/theme1.xml"/><Relationship Id="rId4"
-   Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/fontTable" Target="fontTable.xml"/></Relationships>  
-   ```
-4. In the XML snippet, there's a line that specifies a link to an external web page. This line has an ID, a type indicating it's related to an embedded object, and a URL (web address) pointing to the specific page. The URL, https://www.xmlformats.com/office/word/2022/wordprocessingDrawing/RDF842l.html, is where the document is trying to connect to. It's like a shortcut within the document that leads to content on the internet.
+![image](https://github.com/user-attachments/assets/c9d0d669-7494-44ae-b83a-7a0885c4574b)
 
+----
 
-# Question 4) What is the name of the XML file that is storing the extracted URL? (Format: file.name.ext)
-1. Refer to Question 3, the file name is **document.xml.rels**.
+## Question 4) Submit the CVE of the zero day vulnerability of a driver which led to RCE and gain SYSTEM privileges (Format: CVE-XXXX-XXXXX)
+`CVE-2021-34527`
 
-# Question 5) The extracted URL accesses a HTML file that triggers the vulnerability to execute a malicious payload. According to the HTML processing functions, any files with fewer than <Number> bytes would not invoke the payload. Submit the <Number> (Format: Number of Bytes) 
-1. Based on the Huntress report, any files with fewer than 4096 bytes would not invoke the payload.
-   
-   ![image](https://github.com/ZuanAce/blueteamlabs/assets/147037911/bff4caad-e572-4932-8474-eafc90759c5e)
+![image](https://github.com/user-attachments/assets/4d6f6b4a-a96a-4452-ac08-8a6929cf41f9)
 
-# Question 6) After execution, the sample will try to kill a process if it is already running. What is the name of this process? (Format: filename.ext) 
-1. Examining the Huntress report reveals the sequence of events when the malware is executed, providing insights into the exploit's behavior. This information addresses the sixth question in the analysis.
-   
-   ![image](https://github.com/ZuanAce/blueteamlabs/assets/147037911/03a6cb19-2930-407d-833d-29d0eefa0578)
+----
 
-# Question 7) You were asked to write a process-based detection rule using Windows Event ID 4688. What would be the ProcessName and ParentProcessname used in this detection rule? [Hint: OSINT time!] (Format: ProcessName, ParentProcessName)
-1. In the report, there's a picture showing how one computer process leads to another. We can create a way to detect this because the way these processes are connected looks strange. This helps us answer question 7 in the investigation.
-   
-   ![image](https://github.com/ZuanAce/blueteamlabs/assets/147037911/2be1d883-2244-4d36-88fd-f70901cfc5f1)
+## Question 5) Mention the 2 adversary groups that leverage SEO to gain initial access (Format: Group1, Group2)  
+`Gootkit, Yellow Cockatoo`
 
-# Question 8) Submit the MITRE technique ID used by the sample for Execution [Hint: Online sandbox platforms can help!] (Format: TXXXX) 
-1. Head over to VirusTotal and click on the Behavior tab. Scroll down, and you'll find the MITRE technique ID that the sample uses for its Execution behavior.
-   
-   ![image](https://github.com/ZuanAce/blueteamlabs/assets/147037911/526293a7-268b-48a5-b52d-bff24e8cb43b)
+![image](https://github.com/user-attachments/assets/ae4bd8ff-eea3-4b3a-b11f-4540a9e38c25)
 
-# Question 9) Submit the CVE associated with the vulnerability that is being exploited (Format: CVE-XXXX-XXXXX)
-1. Check the Detection tab. The CVE associated **cve-2022-30190**.
-   
-   ![image](https://github.com/ZuanAce/blueteamlabs/assets/147037911/286cfe58-1288-4fa8-8cc0-303f7bb7b108)
+----
+
+## Question 6) In the detection rule, what should be mentioned as parent process if we are looking for execution of malicious js files [Hint: Not CMD] (Format: ParentProcessName.exe) 
+`wscript.exe`
+
+![image](https://github.com/user-attachments/assets/b40a2bf3-72a1-4389-89e2-59dece64dc6c)
+
+----
+
+## Question 7) Ransomware gangs started using affiliate model to gain initial access. Name the precursors used by affiliates of Conti ransomware group (Format: Affiliate1, Affiliate2, Afilliate3)
+`Qbot, Bazar, IcedID`   
+
+![image](https://github.com/user-attachments/assets/4811b847-e328-4b7f-b8ae-c9f538be619f)
+
+----
+
+## Question 8) The main target of coin miners was outdated software. Mention the 2 outdated software mentioned in the report (Format: Software1, Software2) 
+`Jboss, WebLogic`
+
+![image](https://github.com/user-attachments/assets/2d326ffb-87d6-4e62-bb4e-e0029865a4da)
+
+----
+
+## Question 9) Name the ransomware group which threatened to conduct DDoS if they didn't pay ransom (Format: GroupName)
+`Fancy Lazarus`
+
+![image](https://github.com/user-attachments/assets/64f5b2bd-de34-4ce1-9549-105b516475c2)
+
+----
+
+## Question 10) What is the security measure we need to enable for RDP connections in order to safeguard from ransomware attacks? (Format: XXX)
+`MFA`
+
+![image](https://github.com/user-attachments/assets/8f36e996-ed77-4f0e-885f-f9f98b4b3dec)
+
+----
